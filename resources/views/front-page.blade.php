@@ -87,7 +87,7 @@
 				@php(wp_reset_postdata())
   				<div class="col-xs-12">
   					<div class="button-row center">
-  						<a href="/blog.html" class="button">More Posts</a>
+  						<a href="/news/" class="button">More Posts</a>
   					</div>
   				</div>
   			</div>

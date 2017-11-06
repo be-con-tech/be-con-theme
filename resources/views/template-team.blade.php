@@ -15,27 +15,17 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-xs-12">
-            <div class="card image-card">
-              <div class="image" style="background-image: url('/images/placeholder-1.jpg')"></div>
-              <h3>Firstname Lastname</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card image-card">
-              <div class="image" style="background-image: url('/images/placeholder-2.jpg')"></div>
-              <h3>Firstname Lastname</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card image-card">
-              <div class="image" style="background-image: url('/images/placeholder-3.jpg')"></div>
-              <h3>Firstname Lastname</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
+          @if(get_field('committee_members'))
+            @foreach(get_field('committee_members') as $member)
+              <div class="col-md-4 col-xs-12">
+                <div class="card image-card">
+                  <div class="image" style="background-image: url('{{ $member['image']['sizes']['medium'] }}')"></div>
+                  <h3>{{ $member['name'] }}</h3>
+                  {!! $member['bio'] !!}
+                </div>
+              </div>
+            @endforeach
+          @endif
         </div>
       </div>
     </section>
