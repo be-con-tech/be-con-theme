@@ -1,0 +1,213 @@
+//
+// Name:            Navigation
+//
+// Description:     Contains all navigation styles
+//
+
+// ========================================================================
+// Component: Navigation
+// ========================================================================
+
+.nav-primary {
+	display:inline-block;
+	margin-left:20px;
+	vertical-align:top;
+	font-size: 18px;
+
+	a {
+		color: $color-black;
+		font-weight: bold;
+	}
+
+	ul.nav {
+		list-style:none;
+		padding:0;
+
+		> li {
+			display:inline-block;
+			position:relative;
+			width:auto;
+			margin:0 20px;
+			vertical-align:top;
+			@include transition(.6s);
+
+			> a {
+				display:inline-block;
+				@include transition(.5s);
+				padding: 5px;
+			}
+
+			&:hover {
+				> a {
+					&:hover {
+						color: $secondary-purple;
+					}
+				}
+			}
+
+			&.menu-item-has-children {
+				border-radius: 3px 3px 0 0;
+				border-width: 1px 1px 0 1px;
+				border-color: transparent;
+				border-style: solid;
+				transition: 0.5s;
+
+				> a {
+					z-index: 1000;
+					position: relative;
+
+					&:after {
+						content: "\f107";
+						@include fa-icon();
+						transition: .5s;
+						display: inline-block;
+						margin-left: 5px;
+						transform: rotate(0deg);
+					}
+				}
+
+				&:hover {
+					border-color: $color-ltgray;
+
+					a {
+						background-color: $color-white;
+
+						&:after {
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
+
+			ul.sub-menu {
+				position:absolute;
+				top:calc(100% - 1px);
+				left:-1px;
+				z-index:999;
+				width:300px;
+				list-style:none;
+				padding:0;
+				border-radius: 0 3px 3px 3px;
+				border: 1px $color-ltgray solid;
+				background-color: $color-white;
+				max-height: 0;
+				overflow:hidden;
+				transform:perspective(400) rotate3d(1,0,0,-90deg);
+				transform-origin:50% 0;
+				transition:350ms;
+
+				li {
+					width:100%;
+
+					a {
+						display:inline-block;
+						width:100%;
+						padding:10px;
+						color: $secondary-purple;
+						line-height: 1.2;
+
+						&:hover {
+							background-color: $secondary-purple;
+							color: $color-white;
+						}
+					}
+				}
+			}
+
+			&:hover .sub-menu, > a:hover {
+				max-height:1000px;
+    		transform:perspective(400) rotate3d(0,0,0,0);
+			}
+		}
+	}
+}
+
+.ie .nav-primary > ul > li ul.sub-menu,
+.edge .nav-primary > ul > li ul.sub-menu {
+	display:none;
+}
+.ie .nav-primary > ul > li:hover .sub-menu,
+.edge .nav-primary > ul > li:hover .sub-menu {
+	display:block;
+}
+
+@media only screen and (max-width: 980px) and (min-width: 1px) {
+	.header .button {
+		display:none;
+	}
+}
+
+@media only screen and (max-width: 768px) and (min-width: 1px) {
+	.nav-primary {
+		display:none;
+		position:absolute;
+		top:95px;
+		left:0;
+		width:100%;
+		z-index:999;
+		margin-left:0;
+		background-color: $color-white;
+		font-size: 16px;
+		width: 100%;
+		border-top: 1px $color-ltgray solid;
+		border-bottom: 1px $color-ltgray solid;
+
+		> ul {
+			padding: 0;
+
+			> li {
+				display:inline-block;
+				width:100%;
+				margin:0;
+				height:auto;
+
+				&:hover {
+					ul.sub-menu {
+						display: none;
+					}
+				}
+
+				> a {
+					width:100%;
+					text-align:center;
+					line-height:64px;
+					border-bottom: 1px $color-ltgray solid;
+					line-height: 40px;
+
+					&:after {
+						display: none;
+					}
+				}
+
+				&:last-child a {
+					border-bottom:none;
+				}
+
+				ul.sub-menu {
+					top:0;
+					width:100%;
+					position:relative;
+					left: 0;
+					border: none;
+					border-radius: 0;
+					border-bottom: 2px $color-ltgray solid;
+					transform: none;
+					display: none;
+					max-height: none;
+
+					li {
+						border-bottom: 1px $color-ltgray dotted;
+
+						&:last-child {
+							border-bottom: none;
+						}
+					}
+				}
+			}
+			
+			.menu-item-has-children a {
+
+			}
+		}
+	}
+}

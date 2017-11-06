@@ -1,0 +1,214 @@
+//
+// Name:            Base
+//
+// Description:     Contains all base styles, including basic resets
+//
+
+// ========================================================================
+// Component
+// ========================================================================
+
+body {
+	background:$background;
+	overflow-x: hidden;
+	color: $color-black;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: 'Lato', Arial, sans-serif;
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+a {
+	@include transition(.6s);
+	color: $secondary-purple;
+
+	&:hover,
+	&:focus {
+		color: $secondary-dkpurple;
+	}
+}
+
+video::-webkit-media-controls {
+	display: none !important;
+}
+
+
+// Heading styles
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	font-family: 'Zilla Slab', sans-serif;
+}
+
+h1 {
+	font-size: 64px;
+	line-height: 76px;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 48px;
+		line-height: 72px;
+	}
+}
+
+h2 {
+	font-size: 36px;
+	line-height: 48px;
+	margin-bottom: 1em;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 24px;
+		line-height: 36px;
+	}
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 36px;
+
+	@media only screen and (max-width: 568px) {
+		font-size: 18px;
+		line-height: 30px;
+	}
+}
+
+h4 {
+	font-size: 16px;
+	line-height: 30px;
+}
+
+
+// Global text styles
+p.subtitle {
+	font-size: 16px;
+	font-weight: bold;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+blockquote {
+	font-size: 24px;
+	font-style: italic;
+	line-height: 41px;
+	margin: 28px 0;
+	padding: 0 40px;
+	border-left: 2px #ccc solid;
+}
+
+.intro-text {
+	font-size: 20px;
+	line-height: 34px;
+	margin-bottom: 20px;
+}
+
+#hero {
+	width:100%;
+	height:440px;
+	position:relative;
+	background:#000;
+
+	.wrapper {
+		position:relative;
+		z-index:999;
+	}
+
+	.wrapper, .row {
+		height: 100%;
+	}
+
+	h1 {
+		font-size:72px;
+		line-height:82px;
+		font-weight: 900;
+		color:$color-white;
+	}
+
+	p.subtitle {
+		font-size: 36px;
+		font-weight: 300;
+		line-height: 48px;
+		margin: 0;
+	}
+
+	p {
+		font-size:18px;
+		color:$color-white;
+		width:75%;
+	}
+
+	.banner {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		z-index:1;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.banner-overlay {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		z-index:2;
+		background:rgba($secondary-purple, 0.85);
+	}
+
+	&.short {
+		height: 120px;
+
+		.banner {
+			/* background pattern adapted from subtlepatterns.com */
+			background-image: url('../images/pattern.png');
+			background-repeat: repeat;
+			background-size: auto;
+		}
+
+		h1 {
+			margin: 20px auto;
+			width: fit-content;
+		}
+
+		h2 {
+			margin-top: -50px;
+	    padding-bottom: 50px;
+			color: white;
+		}
+	}
+
+	@media only screen and (max-width: 568px) and (min-width: 1px) {
+		&,
+		.banner,
+		.banner-overlay {
+			height:350px;
+		}
+
+		h1 {
+			font-size:42px;
+			line-height:52px;
+			margin:80px 0 20px 0;
+		}
+
+		p {
+			width:100%;
+			font-size:14px;
+			line-height:22px;
+		}
+		
+		&.short {
+			&,
+			.banner,
+			.banner-overlay {
+				height: 150px;
+			}
+
+			h1 {
+				margin: 10px auto;
+			}
+		}
+	}
+}

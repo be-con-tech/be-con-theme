@@ -1,0 +1,32 @@
+.page-template-template-blog-index {
+  .blog-entry {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $color-ltgray;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .row {
+      margin-bottom: 10px;
+    }
+
+    .read-more {
+      margin-top: 30px;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+//
+// Name:            Home
+//
+// Description:     Contains all style definitions concerning basic
+//					structure and layout
+//
+
+// ========================================================================
+// Component: Home Page
+// ========================================================================
+
+
+.page-template-template-home,
+.home {
+  section#hero {
+    .wrapper {
+  		padding-bottom: 50px;
+    }
+  }
+
+  section#updates {
+    .card {
+      h3 {
+        text-align: left;
+        margin: 0;
+      }
+
+      .datetime {
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
