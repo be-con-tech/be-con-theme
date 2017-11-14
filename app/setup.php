@@ -40,7 +40,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'footer_navigation' => __('Footer Navigation', 'sage')
     ]);
 
     /**
@@ -77,6 +78,21 @@ add_action('after_setup_theme', function () {
       )
     ));
 
+    register_post_type('gm', array(
+        'labels' => array(
+            'name' => 'GMs',
+            'singular_name' => 'GM'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'custom-fields'
+        )
+    ));
+
     /**
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss
@@ -111,6 +127,40 @@ add_action('widgets_init', function () {
 add_action('the_post', function ($post) {
     sage('blade')->share('post', $post);
 });
+
+
+
+function submit_game_proposal() {
+    $ret = 0;
+
+    if (!empty($_POST)) {
+        $ret = wp_insert_post(array(
+            'post_author' => 1,
+            'post_title' => addslashes($_POST['game_name']),
+            'post_type' => 'game',
+            'meta_input' => array(
+                'short_description' => addslashes($_POST['short_description']),
+                'long_description' => addslashes($_POST['game_description']),
+                'written_by' => addslashes($_POST['writers']),
+                'run_by' => addslashes($_POST['gms']),
+                'pre_casting' => ($_POST['pre_casting'] == 'true') ? true : false,
+                'number_of_players' => addslashes($_POST['number']),
+                'primary_contact_name' => addslashes($_POST['primary_contact']),
+                'primary_contact_email' => addslashes($_POST['email'])
+            )
+        ));
+    }
+    if ($ret == 0) {
+        header('Location:'.$_SERVER['HTTP_REFERER'].'?submitted=error');
+    } else {
+        header('Location:'.$_SERVER['HTTP_REFERER'].'?submitted=thanks');
+    }
+    
+    exit();
+}
+
+add_action('admin_post_nopriv_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
+add_action('admin_post_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 
 /**
  * Setup Sage options

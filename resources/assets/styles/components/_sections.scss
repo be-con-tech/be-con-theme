@@ -95,10 +95,13 @@ section.cards {
 }
 
 section.info-box {
+	border-bottom: 1px white solid;
+	
 	h3 {
 		margin-bottom: 20px;
 		margin-top: 0;
 	}
+
 	ul {
 		columns: 200px 3;
 		list-style: none;

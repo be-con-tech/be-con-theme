@@ -31,9 +31,10 @@
   			<div class="row center-xs">
   				<div class="col-md-10 col-xs-12">
   					<h2>Sign up for our newsletter!</h2>
-  					<form class="newsletter-form">
-  						<input type="email" name="email" /><input type="submit" value="Subscribe" class="button" />
-  					</form>
+					<form class="newsletter-form" method="POST" target="popupwindow" action="{{ get_field('newsletter_form', 'option')}}">
+						<label name="email" class="for-screenreader">Email</label>
+						<input type="email" name="email" id="tlemail" /><input name="embed" type="hidden" value="1" /><input type="submit" value="Subscribe" class="button" />
+					</form>
   				</div>
   			</div>
   		</div>

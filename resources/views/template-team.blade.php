@@ -29,68 +29,30 @@
         </div>
       </div>
     </section>
-    <section id="gm-list" class="section">
-      <div class="wrapper">
-        <div class="row center-xs">
-          <h2>List of GMs</h2>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
+    @php
+      $gms = get_posts(array(
+        'post_type' => 'gm',
+        'posts_per_page' => -1
+      ));
+    @endphp
+    @if(count($gms) > 0)
+      <section id="gm-list" class="section">
+        <div class="wrapper">
+          <div class="row center-xs">
+            <h2>List of GMs</h2>
           </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-12">
-            <div class="card">
-              <h3>Firstname Lastname</h3>
-              <p>GM blurb. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat.</p>
-            </div>
+          <div class="row">
+            @foreach($gms as $gm)
+              <div class="col-md-4 col-xs-12">
+                <div class="card">
+                  <h3>{{ $gm->post_title }}</h3>
+                  {!! $gm->post_content !!}
+                </div>
+              </div>
+            @endforeach
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    @endif
   @endwhile
 @endsection

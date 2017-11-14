@@ -131,6 +131,7 @@
     "font-awesome": "~4.7",
     "hamburgers": "^0.9.1",
     "jquery": "1.12.4 - 3",
+    "jquery-validation": "^1.17.0",
     "sass-flex-mixin": "^1.0.3"
   }
 }
