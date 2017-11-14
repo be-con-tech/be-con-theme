@@ -227,6 +227,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="url"],
 select,
 textarea {
 	font-family: 'Lato', Arial, sans-serif;
@@ -234,7 +235,10 @@ textarea {
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="url"],
+{
+
 	border:$form-field-border;
 	height:$form-field-height;
 	line-height:$form-field-height;

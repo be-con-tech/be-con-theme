@@ -8,7 +8,7 @@
 // Component
 // ========================================================================
 
-.button {
+.button, input[type="submit"] {
 	border: 2px $secondary-purple solid;
 	background-color: $secondary-purple;
 	color: $color-white;
@@ -79,6 +79,7 @@
 	overflow: hidden;
 	padding: 0;
 	cursor: pointer;
+	max-width: 200px;
 
 	&:before {
 	  content: "";
@@ -100,12 +101,13 @@
 	    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 	  }
 
-	  .button {
+	  input[type="submit"] {
+
 		  color: $secondary-purple;
 	  }
 	}
 
-	.button {
+	input[type="submit"] {
 		border: none;
 		background-color: transparent;
 		width: 100%;
@@ -120,7 +122,7 @@
 			display: none;
 		}
 
-		.button {
+		input[type="submit"] {
 			pointer-events: none;
 		}
 	}
