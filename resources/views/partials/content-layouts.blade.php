@@ -52,7 +52,7 @@
             <script type="text/javascript">
                 function initMap{{ $row_count }}() {
                     var map = new google.maps.Map(document.getElementById('section-{{ $row_count }}'), {
-                        center: {lat: 40.674, lng: -73.945},
+                        center: {lat: {{ get_sub_field('center_latitude') }}, lng: {{ get_sub_field('center_longitude') }}},
                         zoom: 12,
                         styles: [
                             {
@@ -231,9 +231,24 @@
                             }
                         ]
                     });
+
+                    var markers = [];
+                    var tmp;
+
+                    @foreach(get_sub_field('markers') as $marker)
+                        @if($marker['latitude'] && $marker['longitude'])
+                            tmp = new google.maps.Marker({
+                                position: {lat: parseFloat({{ $marker['latitude']}}), lng: parseFloat({{ $marker['longitude'] }}) },
+                                map: map,
+                                icon: '{{ App\asset_path("images/marker.png") }}',
+                                title: '{{ $marker['label'] }}'
+                            });
+                            markers.push(tmp);
+                        @endif
+                    @endforeach
                 }
             </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVwbkUbGekkcE621Y_1rIRyeRD071flG0&callback=initMap"
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVwbkUbGekkcE621Y_1rIRyeRD071flG0&callback=initMap{{ $row_count }}"
     async defer></script>
         @endif
         @php($row_count++)
