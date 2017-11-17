@@ -13,6 +13,16 @@
       border-bottom: none;
     }
 
+    .default-image {
+      background-image: linear-gradient(to bottom, $secondary-dkpurple, $secondary-purple);
+      text-align: center;
+      padding: 20px;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
     h2 {
       margin-bottom: 20px;
     }

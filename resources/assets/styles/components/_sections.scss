@@ -79,6 +79,10 @@ section.text {
 	.row + .row {
 		margin-top: 50px;
 	}
+
+	& + section.text {
+		padding-top: 0;
+	}
 }
 
 section.image {
