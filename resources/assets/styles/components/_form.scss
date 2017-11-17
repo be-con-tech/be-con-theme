@@ -228,6 +228,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="url"],
+input[type="search"],
 select,
 textarea {
 	font-family: 'Lato', Arial, sans-serif;
@@ -237,6 +238,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="url"],
+input[type="search"]
 {
 
 	border:$form-field-border;
@@ -545,5 +547,15 @@ input[type="submit"] {
 			border-color: $red;
 			background-color: rgba($red, 0.2);
 		}
+	}
+}
+
+form.search-form {
+	display: flex;
+	align-items: flex-end;
+	margin: 20px 0 0;
+
+	.button-wrapper {
+		margin-left: 20px;
 	}
 }

@@ -1,11 +1,11 @@
 {{--
-  Template Name: Create Account Template
+  Template Name: Test Template
 --}}
 
 @extends('layouts.app')
 
 @section('content')
-    <section id="login" class="section">
+    <section id="create-account" class="section">
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-xs-12">
