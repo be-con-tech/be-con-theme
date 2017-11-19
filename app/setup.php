@@ -159,21 +159,26 @@ function submit_game_proposal() {
     exit();
 }
 
-function remove_admin_bar() {
-    if (!current_user_can('administrator') && !is_admin()) {
-    show_admin_bar(false);
-    }
-}
-
-add_action('after_setup_theme', __NAMESPACE__ . '\\remove_admin_bar');
-
 add_action('admin_post_nopriv_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 add_action('admin_post_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
+
+function unregistered_user_redirect()
+{
+    if( is_page( 'Account Dashboard' ) && ! is_user_logged_in() )
+    {
+        wp_redirect( home_url( '/login/' ) );
+        die;
+    }
+}
+add_action( 'template_redirect', __NAMESPACE__ . '\\unregistered_user_redirect' );
 
 /**
  * Setup Sage options
  */
 add_action('after_setup_theme', function () {
+    if (!current_user_can('administrator') && !is_admin()) {
+        show_admin_bar(false);
+    }
     /**
      * Add JsonManifest to Sage container
      */

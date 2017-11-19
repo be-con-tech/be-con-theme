@@ -2,12 +2,12 @@
 	<div class="wrapper container-fluid">
 		<div class="row right-xs middle-xs">
 				@if(is_user_logged_in())
-					<a href="<?php echo wp_logout_url(); ?>">Logout</a>
-					
+					<a href="{{ get_bloginfo('url') }}/account/">Account</a>
+					<a href="{{ wp_logout_url() }} ?>">Logout</a>	
 				@else
 					<a href="/login/">Login</a>
+					<a href="/create-account/">Create an Account</a>
 				@endif
-				<a href="/create-account/">Create an Account</a>
 		</div>
 	</div>
 </div>

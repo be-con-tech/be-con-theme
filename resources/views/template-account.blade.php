@@ -1,7 +1,6 @@
 {{--
   Template Name: Account Template
 --}}
-
 @extends('layouts.app')
 
 @section('content')
