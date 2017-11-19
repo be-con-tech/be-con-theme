@@ -14,7 +14,9 @@
                         <a href="#" class="button oauth-button twitter"><i class="fa fa-twitter"></i> Log in with Twitter</a> <a href="#" class="button oauth-button facebook"><i class="fa fa-facebook"></i> Log in with Facebook</a>
                     </div>
                     <p class="or">Or</p>
-                    <?php wp_login_form(); ?>
+                    <?php wp_login_form(array(
+                        'redirect' => get_bloginfo('url').'/account/'
+                    )); ?>
                 </div>
             </div>
         </div>

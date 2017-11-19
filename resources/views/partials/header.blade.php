@@ -1,7 +1,13 @@
 <div id="preheader">
 	<div class="wrapper container-fluid">
 		<div class="row right-xs middle-xs">
-				<a href="/login/">Login</a> <a href="/create-account/">Create an Account</a>
+				@if(is_user_logged_in())
+					<a href="<?php echo wp_logout_url(); ?>">Logout</a>
+					
+				@else
+					<a href="/login/">Login</a>
+				@endif
+				<a href="/create-account/">Create an Account</a>
 		</div>
 	</div>
 </div>

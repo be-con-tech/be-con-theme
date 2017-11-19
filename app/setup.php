@@ -159,6 +159,14 @@ function submit_game_proposal() {
     exit();
 }
 
+function remove_admin_bar() {
+    if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
+    }
+}
+
+add_action('after_setup_theme', 'remove_admin_bar');
+
 add_action('admin_post_nopriv_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 add_action('admin_post_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 
