@@ -162,6 +162,38 @@ function submit_game_proposal() {
 add_action('admin_post_nopriv_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 add_action('admin_post_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 
+function update_user_from_frontend() {
+    $ret = 0;
+
+    if (!empty($_POST)) {
+        $data = array(
+            'ID' => intval(addslashes($_POST['user_id']))
+        );
+        if (isset($_POST['user_email'])) {
+            $data['user_email'] = addslashes($_POST['user_email']);
+        }
+        if (isset($_POST['display_name'])) {
+            $data['display_name'] = addslashes($_POST['display_name']);
+        }
+        if(isset($_POST['user_pass']) && isset($_POST['confirm_user_pass']) && ($_POST['user_pass'] == $_POST['confirm_user_pass'])) {
+            $data['user_pass'] = addslashes($_POST['user_pass']);
+        }
+        $ret = wp_update_user($data);
+    }
+    if ($ret == $_POST['user_id']) {
+        header('Location:'.$_SERVER['HTTP_REFERER'].'?submitted=ok');
+    } else {
+        print_r($data);
+        print_r($ret);
+        die();
+        header('Location:'.$_SERVER['HTTP_REFERER'].'?submitted=error');
+    }
+    exit();
+}
+
+add_action('admin_post_nopriv_update_user_from_frontend', __NAMESPACE__ . '\\update_user_from_frontend');
+add_action('admin_post_update_user_from_frontend', __NAMESPACE__ . '\\update_user_from_frontend');
+
 function unregistered_user_redirect()
 {
     if( is_page( 'Account Dashboard' ) && ! is_user_logged_in() )
