@@ -165,7 +165,7 @@ function remove_admin_bar() {
     }
 }
 
-add_action('after_setup_theme', 'remove_admin_bar');
+add_action('after_setup_theme', __NAMESPACE__ . '\\remove_admin_bar');
 
 add_action('admin_post_nopriv_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
 add_action('admin_post_submit_game_proposal', __NAMESPACE__ . '\\submit_game_proposal');
