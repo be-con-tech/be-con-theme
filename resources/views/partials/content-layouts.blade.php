@@ -53,7 +53,7 @@
                 function initMap{{ $row_count }}() {
                     var map = new google.maps.Map(document.getElementById('section-{{ $row_count }}'), {
                         center: {lat: {{ get_sub_field('center_latitude') }}, lng: {{ get_sub_field('center_longitude') }}},
-                        zoom: 12,
+                        zoom: 14,
                         styles: [
                             {
                                 "featureType": "water",
@@ -233,6 +233,7 @@
                     });
 
                     var markers = [];
+                    var infoWindows = [];
                     var tmp;
 
                     @foreach(get_sub_field('markers') as $marker)
@@ -244,8 +245,25 @@
                                 title: '{{ $marker['label'] }}'
                             });
                             markers.push(tmp);
+                            infoWindows.push(new google.maps.InfoWindow({
+                                content: '{{$marker['label']}}'
+                            }));
+                            attachMarkerClickHandler(markers[markers.length-1], '{{ $marker['label'] }}', markers.length-1);
                         @endif
                     @endforeach
+
+                    function attachMarkerClickHandler(marker, name, idx) {
+                        marker.addListener('click', function() {
+                            for (var mk in markers) {
+                                markers[mk].setIcon('{{ App\asset_path("images/marker.png") }}');
+                                markers[mk].setOptions({zIndex: 1});
+                                infoWindows[mk].close();
+                            }
+                            this.setIcon('{{ App\asset_path("images/marker-yellow.png") }}');
+                            this.setOptions({zIndex: 9});
+                            infoWindows[idx].open(map, this);
+                        });
+                    }
                 }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVwbkUbGekkcE621Y_1rIRyeRD071flG0&callback=initMap{{ $row_count }}"
