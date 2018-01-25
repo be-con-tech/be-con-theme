@@ -76,7 +76,7 @@
                 </div>
                 <div class="form-row">
                   <label for="player_spaces">Player Spaces</label>
-                  <p class="help">Specify the minimum and maximum number of characters supported in each of these 4 categories. Be-Con will be matching players with your listed spaces based on what they have indicated they are willing to play. Be-Con’s advice on gender and casting is available here.[link to how to propose...]  </p>
+                  <p class="help">Specify the minimum and maximum number of characters supported in each of these 4 categories. Be-Con will be matching players with your listed spaces based on what they have indicated they are willing to play. Be-Con’s advice on gender and casting is available <a href="/how-do-i-run-a-game/#section-7">here</a>.</p>
                   <table class="table">
                     <thead>
                       <tr>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="form-row">
                   <label for="duration">Duration</label>
-                  <p class="help">This is the number of hours needed for your larp.  This must go beyond expected play time, and  include time for any briefing, workshops or debriefing that you are going to do.  The standard slot lengths Be-Con can support are 2, 3, or 4 hours.  Be-Con can support a small number of larps that are 5 or 6 hours as well as 1 hour games hosted in your hotel suite.  See the "How Do I Run a Game" page for details. [Link to how do I run a game page]</p>
+                  <p class="help">This is the number of hours needed for your larp.  This must go beyond expected play time, and  include time for any briefing, workshops or debriefing that you are going to do.  The standard slot lengths Be-Con can support are 2, 3, or 4 hours.  Be-Con can support a small number of larps that are 5 or 6 hours as well as 1 hour games hosted in your hotel suite.  See the "<a href="/how-do-i-run-a-game/">How Do I Run a Game</a>" page for details.</p>
                   <input type="number" name="duration" placeholder="Duration" required="required" />
                 </div>
                 <div class="form-row">
@@ -126,7 +126,7 @@
                 </div>
                 <div class="form-row">
                   <label for="physical_abilities">Physical Abilities</label>
-                  <p class="help">Check all for things that are required of a player to participate in your game. Do not check anything for which you can make accommodations for players with different abilities, but see our How Do I Run A Game page for information on accommodations and casting.</p>
+                  <p class="help">Check all for things that are required of a player to participate in your game. Do not check anything for which you can make accommodations for players with different abilities, but see our <a href="/how-do-i-run-a-game/">How Do I Run A Game</a> page for information on accommodations and casting.</p>
                   <ul class="checkbox">
                     <li><input type="checkbox" name="physical_abilities[]" value="standing" /> <label for="physical_abilities[]">Standing for long periods</label></li>
                     <li><input type="checkbox" name="physical_abilities[]" value="sitting" /> <label for="physical_abilities[]">Sitting for long periods</label></li>
