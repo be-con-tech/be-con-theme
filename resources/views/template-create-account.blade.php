@@ -15,6 +15,11 @@
                     </div>
                     <p class="or">Or</p>-->
                     <form name="registerform" id="registerform" action="{{ get_bloginfo('url') }}/wp-login.php?action=register" method="post" _lpchecked="1">
+                        <p class="login-display-name">
+                            <label for="display_name">Display Name</label>
+                            <span class="help">The name you are known as and want to be referred to as, which might not be your legal name.</span>
+                            <input type="text" name="display_name" id="display_name" class="input" value="" size="20">
+                        </p>
                         <p class="login-username">
                             <label for="user_login">Username</label>
                             <input type="text" name="user_login" id="user_login" class="input" value="" size="20">

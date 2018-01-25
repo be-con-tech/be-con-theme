@@ -128,6 +128,18 @@ add_action('the_post', function ($post) {
     sage('blade')->share('post', $post);
 });
 
+function add_name_field_to_reg($user_id) {
+    if (isset($_POST['display_name'])) {
+        wp_update_user(array(
+            'ID' => $user_id,
+            'nickname' => addslashes($_POST['display_name']),
+            'display_name' => addslashes($_POST['display_name'])
+        ));
+    }
+}
+
+add_action('user_register', __NAMESPACE__ . '\\add_name_field_to_reg');
+
 
 
 function submit_game_proposal() {
@@ -135,7 +147,7 @@ function submit_game_proposal() {
 
     if (!empty($_POST)) {
         $ret = wp_insert_post(array(
-            'post_author' => 1,
+            'post_author' => intval(addslashes($_POST['user_id'])),
             'post_title' => addslashes($_POST['game_name']),
             'post_type' => 'game',
             'meta_input' => array(
