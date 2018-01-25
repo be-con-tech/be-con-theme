@@ -19,12 +19,6 @@
               {{ get_field('written_by') }}</li>
             <li><strong>Run By</strong>
               {{ get_field('run_by') }}</li>
-            <li><strong>Number of Players</strong>
-              {{ get_field('number_of_players') }}</li>
-            <li><strong>Content Warnings</strong>
-              {{ (get_field('content_warnings')) ? get_field('content_warnings') : 'None' }}</li>
-            <li><strong>Pre-Casting</strong>
-              {{ (get_field('pre_casting')) ? 'Available' : 'Not Available'}}</li>
           </ul>
         </div>
       </div>

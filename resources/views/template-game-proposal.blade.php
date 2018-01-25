@@ -67,7 +67,7 @@
                 <div class="form-row">
                   <label for="content_warnings">Content Warnings</label>
                   <p class="help">This field should include all sensitive content which is in your game.  These will display on your game’s individual page. See the content warning section of the <a href="/social-contract/">Social Contract</a> for more information and examples of required warnings.</p>
-                  <textarea name="content_warnings" placeholder="List of content warnings, if any"></textarea>
+                  <textarea name="content_warnings" placeholder="List of content warnings, if any" required></textarea>
                 </div>
                 <div clss="form-row">
                   <label for="age_requirements">Age Requirements</label>
@@ -143,7 +143,7 @@
                   <p class="help">See the <a href="/social-contract/">Social Contract</a> for more information.</p>
                   <ul class="radio">
                     <li><input type="radio" value="true" name="default_physical_contact" required checked /> <label for="default_physical_contact">Yes</label></li>
-                    <li><input type="radio" value="false" name="default_physical_contact" required /> <label for="default_physical_contact">No</label></li>
+                    <li><input type="radio" value="false" name="default_physical_contact" required id="default-contact-no" /> <label for="default_physical_contact">No</label></li>
                   </ul>
                 </div>
                 <div class="form-row">
@@ -155,7 +155,7 @@
                   <p class="help">See the <a href="/social-contract/">Social Contract</a> for more information.</p>
                   <ul class="radio">
                     <li><input type="radio" value="true" name="default_safety_mechanics" required checked /> <label for="default_safety_mechanics">Yes</label></li>
-                    <li><input type="radio" value="false" name="default_safety_mechanics" required /> <label for="default_safety_mechanics">No</label></li>
+                    <li><input type="radio" value="false" name="default_safety_mechanics" required id="default-safety-no" /> <label for="default_safety_mechanics">No</label></li>
                   </ul>
                 </div>
                 <div class="form-row">
@@ -176,7 +176,21 @@
                   <label for="space_requirements">What are the space requirements?</label>
                   <p class="help">Be-Con has the following possible spaces.  Please check all of the spaces you can possibly run in.</p>
                   <ul class="checkbox">
-
+                    <li><input type="checkbox" name="space_requirements[]" value="ohare" /> O'Hare Room
+                      <p class="help">This typical convention and meeting room is 1000 square feet, and we expect it to hold games in the 20-30 player range.  It is available Friday and Saturday.  It is a large open space with configurable banquet chairs and tables, and includes a whiteboard and pull down projection screen.  Game/GM provided food is not allowed in this room.  Pictures are available <a href="#">here</a>.</p>
+                    </li>
+                    <li><input type="checkbox" name="space_requirements[]" value="midway" /> Midway Room
+                      <p class="help">This typical convention and meeting room is 900 square feet, and we expect it to hold games in the 20-30 player range.  It is available Saturday.  It is a large open space with configurable banquet chairs and tables, and includes a whiteboard and pull down projection screen.  Game/GM provided food is not allowed in this room. Pictures are available <a href="#">here</a>.</p>
+                    </li>
+                    <li><input type="checkbox" name="space_requirements[]" value="two_room" /> Two-Bedroom Suite
+                      <p class="help">This room is 740 square feet, and we expect it to hold games in the 12-15 player range.  It is available Friday and Saturday.  This room has a main suite area, and two separate bedrooms.  The standard variety of guest room furniture will remain in the space. Pictures are available <a href="#">here</a>.</p>
+                    </li>
+                    <li><input type="checkbox" name="space_requirements[]" value="studio_suite" /> Studio Suite
+                      <p class="help">This room is 485 square feet, and we expect it to hold games in the 6-10 player range.  It is available Friday and Saturday.  This room has a main suite area, and two separate bedrooms.  The standard variety of guest room furniture will remain in the space. Pictures are available <a href="#">here</a>.</p>
+                    </li>
+                    <li><input type="checkbox" name="space_requirements[]" value="studio_suite" /> Your own hotel suite
+                      <p class="help">You can also reserve your own hotel suite in one of the available suite formats (studio, 1 bedroom or 2 bedroom) to run your game.  Larps with fewer than 6 players will need to select this.</p>
+                    </li>
                   </ul>
                 </div>
                 <div class="form-row">

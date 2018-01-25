@@ -311,6 +311,10 @@ textarea {
 	transition: 0.3s;
 	box-shadow: 0 0 0 rgba($secondary-purple, 0);
 
+	&.error {
+	  border: 1px solid $red;
+	}
+
 	&:focus {
 		background-color: $color-white;
 		outline: none;
