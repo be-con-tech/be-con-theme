@@ -64,10 +64,7 @@
 		color: $color-black;
 		padding: 35px 45px;
 		margin-top: 50px;
-
-		h3 {
-			margin-bottom: 1em;
-		}
+		flex-wrap: wrap;
 	}
 }
 
@@ -102,18 +99,6 @@
 	.footer {
 		.newsletter-signup {
 			margin-top: 0;
-		}
-		
-		.newsletter-form {
-			flex-wrap: wrap;
-			text-align: center;
-
-			input[type="email"] {
-				width: 100%;
-			}
-			input[type="submit"]{
-				margin: 15px auto 0;
-			}
 		}
 	}
 }

@@ -528,8 +528,11 @@ ul.radio {
 }
 
 .newsletter-form {
-	display: flex;
 	align-items: center;
+
+	.form-row {
+		display: flex;
+	}
 
 	.button-wrapper {
 		margin-left: 20px;
@@ -538,6 +541,29 @@ ul.radio {
 	input[type="submit"] {
 		width: auto;
 		flex-grow: 0;
+	}
+
+	label {
+		margin-bottom: 1em;
+		@extend h3;
+		text-transform: none;
+		letter-spacing: 0;
+		display: block;
+		width: 100%;
+	}
+	
+	@media only screen and (max-width: 568px) {
+		.newsletter-form {
+			flex-wrap: wrap;
+			text-align: center;
+
+			input[type="email"] {
+				width: 100%;
+			}
+			input[type="submit"]{
+				margin: 15px auto 0;
+			}
+		}
 	}
 }
 
