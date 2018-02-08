@@ -63,6 +63,7 @@
                   <label for="game_description">Full Game Description</label>
                   <p class="help">This will display on your game's individual page.  It should at least include everything in the short description.</p>
                   <textarea name="game_description" placeholder="Full Game Description" required="required"></textarea>
+                  <p class="help">You can edit this field with <a href="https://daringfireball.net/projects/markdown/syntax" rel="external" target="_blank">Markdown</a>.</p>
                 </div>
                 <div class="form-row">
                   <label for="content_warnings">Content Warnings</label>
