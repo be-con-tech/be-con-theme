@@ -13,8 +13,51 @@
 .page-template-template-home,
 .home {
   section#hero {
+    overflow: hidden;
+
     .wrapper {
-  		padding-bottom: 50px;
+      padding-bottom: 50px;
+      position: relative;
+      z-index: 9;
+
+      &:before {
+        content: "";
+        width: 340px;
+        height: 440px;
+        background-image: url('../images/logo.png');
+        background-size: cover;
+        position: absolute;
+        bottom: -30px;
+        right: 50px;
+        z-index: 3;
+      }
+
+      .row {
+        position: relative;
+        z-index: 9;
+      }
+    }
+
+    @media only screen and (max-width: 960px) {
+      height: 340px;
+      
+      .wrapper {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  section#newsletter {
+    .newsletter-form {
+      label {
+        position: absolute;
+        width: 0;
+        height: 0;
+        text-indent: -999px;
+        overflow: hidden;
+      }
     }
   }
 

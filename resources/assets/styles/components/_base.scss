@@ -163,9 +163,11 @@ blockquote {
 		width:100%;
 		height:100%;
 		z-index:1;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+		/* background pattern adapted from subtlepatterns.com */
+		background-image: url('../images/pattern.png');
+		background-repeat: repeat;
+		background-size: auto;
+
 	}
 
 	.banner-overlay {
@@ -180,13 +182,6 @@ blockquote {
 
 	&.short {
 		height: 120px;
-
-		.banner {
-			/* background pattern adapted from subtlepatterns.com */
-			background-image: url('../images/pattern.png');
-			background-repeat: repeat;
-			background-size: auto;
-		}
 
 		h1 {
 			margin: 20px auto;

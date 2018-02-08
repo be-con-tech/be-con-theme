@@ -14,7 +14,10 @@
                         <a href="#" class="button oauth-button twitter"><i class="fa fa-twitter"></i> Log in with Twitter</a> <a href="#" class="button oauth-button facebook"><i class="fa fa-facebook"></i> Log in with Facebook</a>
                     </div>
                     <p class="or">Or</p>-->
-                    <form name="registerform" id="registerform" action="{{ get_bloginfo('url') }}/wp-login.php?action=register" method="post" _lpchecked="1">
+                    @php
+                        echo do_shortcode('[wppb-register redirect="true" redirect_url="'.get_bloginfo('url').'/account-thanks/"]');
+                    @endphp
+                    <!--<form name="registerform" id="registerform" action="{{ get_bloginfo('url') }}/wp-login.php?action=register" method="post" _lpchecked="1">
                         <p class="login-display-name">
                             <label for="display_name">Display Name</label>
                             <span class="help">The name you are known as and want to be referred to as, which might not be your legal name.</span>
@@ -32,7 +35,7 @@
                             <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Create Account">
                             <input type="hidden" name="redirect_to" value="{{ get_bloginfo('url') }}/account-thanks/">
                         </p>
-                    </form>
+                    </form>-->
                 </div>
             </div>
         </div>
