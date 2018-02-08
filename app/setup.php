@@ -129,11 +129,11 @@ add_action('the_post', function ($post) {
 });
 
 function add_name_field_to_reg($user_id) {
-    if (isset($_POST['display_name'])) {
+    if (isset($_POST['nickname'])) {
         wp_update_user(array(
             'ID' => $user_id,
-            'nickname' => addslashes($_POST['display_name']),
-            'display_name' => addslashes($_POST['display_name'])
+            'nickname' => addslashes($_POST['nickname']),
+            'display_name' => addslashes($_POST['nickname'])
         ));
     }
 }

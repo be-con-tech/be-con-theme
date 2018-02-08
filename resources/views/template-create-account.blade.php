@@ -15,7 +15,7 @@
                     </div>
                     <p class="or">Or</p>-->
                     @php
-                        echo do_shortcode('[wppb-register redirect="true" redirect_url="'.get_bloginfo('url').'/account-thanks/"]');
+                        echo do_shortcode('[wppb-register redirect="true" redirect_url="'.get_bloginfo('url').'/login/"]');
                     @endphp
                     <!--<form name="registerform" id="registerform" action="{{ get_bloginfo('url') }}/wp-login.php?action=register" method="post" _lpchecked="1">
                         <p class="login-display-name">
