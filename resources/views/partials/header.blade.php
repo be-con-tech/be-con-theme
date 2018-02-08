@@ -3,7 +3,9 @@
 		<div class="row right-xs middle-xs">
 				@if(is_user_logged_in())
 					<a href="{{ get_bloginfo('url') }}/account/">Account</a>
-					<a href="{{ wp_logout_url() }}">Logout</a>	
+					@php
+						echo do_shortcode('[wppb-logout text="" link_text="Logout" redirect="'.get_bloginfo('url').'"]');
+					@endphp
 				@else
 					<a href="/login/">Login</a>
 					<a href="/create-account/">Create an Account</a>
